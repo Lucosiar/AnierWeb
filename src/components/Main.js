@@ -1,9 +1,23 @@
+import Hero from "./Hero";
+import Shows from "./Shows";
+import Songs from "./Songs";
+
 function Main() {
     return (
-      <main className="mx-auto space-y-16">
-        <h1>Anier deer</h1>
+      <div className="mx-auto space-y-16">
+        <Hero />
+        <div>
+          <section id="shows"> 
+            <Shows />
+          </section>
+          <section id="songs">
+            <Songs />
+          </section>
+        </div>
         
-      </main>
+        
+        
+      </div>
     );
   }
   
