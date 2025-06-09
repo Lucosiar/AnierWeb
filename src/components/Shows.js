@@ -1,39 +1,56 @@
-const conciertos2025 = [
-  { fecha: "10 junio 2025", ciudad: "Madrid", lugar: "La Riviera", enlace: "https://tickets.madrid" },
-  { fecha: "25 julio 2025", ciudad: "Barcelona", lugar: "Razzmatazz", enlace: "https://tickets.barcelona" },
-  { fecha: "12 septiembre 2025", ciudad: "Valencia", lugar: "Sala Repvblicca", enlace: "https://tickets.valencia" },
-];
+import { motion } from 'framer-motion';
+import CountdownTimer from './CountDownTimer';
 
-function Shows() {
+const ConcertsSection = () => {
   return (
-    <section className="max-w-6xl mx-auto my-16 px-4">
-      <h2 className="text-3xl font-bold mb-8 text-center">Próximos Conciertos 2025</h2>
-      <img
-        src="/img/anier_tour.webp"
-        alt="Pancarta de tour"
-        className="h-full w-auto max-h-[425px] object-cover rounded-lg shadow-lg "
-      />
-      <div className="grid md:grid-cols-3 gap-6">
-        {conciertos2025.map(({ fecha, ciudad, lugar, enlace }, i) => (
-          <div key={i} className="bg-[#1e1e1e] rounded-lg shadow-lg p-6 flex flex-col justify-between">
-            <div>
-              <p className="text-red-500 font-semibold">{fecha}</p>
-              <h3 className="text-xl font-bold">{ciudad}</h3>
-              <p className="text-gray-400 mb-4">{lugar}</p>
-            </div>
-            <a
-              href={enlace}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition"
-            >
-              Comprar Entradas
-            </a>
-          </div>
-        ))}
-      </div>
+    <section className="px-4 py-12 text-white">
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold text-center mb-8"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        Próximos Conciertos 2025
+      </motion.h2>
+
+      <motion.div
+        className="flex justify-center mb-8"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2 }}
+      >
+        <img
+          src="/img/cartel_concierto.webp"
+          alt="Cartel próximo concierto"
+          className="rounded-2xl shadow-xl max-w-full w-[400px]"
+        />
+      </motion.div>
+
+      <motion.div
+        className="flex flex-col items-center mb-6"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+      >
+        <p className="text-lg mb-2">Cuenta atrás para el próximo concierto</p>
+        <CountdownTimer targetDate="2025-09-10T21:00:00" />
+      </motion.div>
+
+      <motion.div
+        className="text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+      >
+        <a
+          href="/shows"
+          className="inline-block bg-red-600 hover:bg-red-800 text-white font-semibold py-3 px-6 rounded-xl transition"
+        >
+          Ver más fechas
+        </a>
+      </motion.div>
     </section>
   );
-}
+};
 
-export default Shows;
+export default ConcertsSection;
