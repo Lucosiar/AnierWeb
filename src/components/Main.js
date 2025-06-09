@@ -1,6 +1,7 @@
 import Hero from "./Hero";
 import Shows from "./Shows";
 import Songs from "./Songs";
+import Newsletter from "./Newsletter";
 
 function Main() {
     return (
@@ -12,6 +13,9 @@ function Main() {
           </section>
           <section id="songs">
             <Songs />
+          </section>
+          <section id="newsletter">
+            <Newsletter />
           </section>
         </div>
         

@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="border-t border-white/20 text-sm text-gray-300 mt-16"
+      className="border-t border-white/20 text-sm text-gray-300"
     >
       <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
         {/* Nombre o logo */}
@@ -12,18 +12,8 @@ function Footer() {
           <p className="text-white font-bold text-xl">Anier</p>
         </div>
 
-        {/* Contacto */}
-        <div className="text-center">
-          <Link
-            to="/contacto"
-            className="text-white font-semibold mb-2 inline-block hover:underline"
-          >
-            Contacto
-          </Link>
-        </div>
-
-        {/* Redes sociales */}
-        <div className="flex justify-center md:justify-end space-x-4">
+        {/* Redes sociales en el centro */}
+        <div className="flex justify-center space-x-4">
           <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" fill="currentColor">
             <img src="/svg/spotify2.svg" alt="Spotify" className="w-8 h-8 invert" />
           </a>
@@ -33,6 +23,22 @@ function Footer() {
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" fill="currentColor">
             <img src="/svg/instagram.svg" alt="Instagram" className="w-8 h-8 invert" />
           </a>
+        </div>
+
+        {/* Contacto y Política de privacidad a la derecha */}
+        <div className="text-right space-y-2">
+          <Link
+            to="/contacto"
+            className="block text-white font-semibold hover:underline"
+          >
+            Contacto
+          </Link>
+          <Link
+            to="/politica-privacidad"
+            className="block text-white font-semibold hover:underline"
+          >
+            Política de privacidad
+          </Link>
         </div>
       </div>
 
