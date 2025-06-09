@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [mostrarFondo, setMostrarFondo] = useState(false);
@@ -16,9 +17,9 @@ function Header() {
   }, []);
 
   const links = [
-    { href: "#home", label: "Inicio" },
-    { href: "#show", label: "Shows" },
-    { href: "#contacto", label: "Contacto" },
+    { to: "/", label: "Inicio" },
+    { to: "/shows", label: "Shows" },
+    { to: "/contacto", label: "Contacto" },
   ];
 
   return (
@@ -41,17 +42,15 @@ function Header() {
 
         <ul className="flex space-x-6">
           {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
+            <li key={link.to}>
+              <Link
+                to={link.to}
                 className={`transition-all duration-300 text-white hover:text-gray-200 ${
-                  mostrarTitulo 
-                  ? "text-xl" 
-                  : "text-lg" 
+                  mostrarTitulo ? "text-xl" : "text-lg"
                 }`}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
