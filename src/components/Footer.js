@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <footer
@@ -12,7 +14,12 @@ function Footer() {
 
         {/* Contacto */}
         <div className="text-center">
-          <p className="text-white font-semibold mb-2">Contacto</p>
+          <Link
+            to="/contacto"
+            className="text-white font-semibold mb-2 inline-block hover:underline"
+          >
+            Contacto
+          </Link>
         </div>
 
         {/* Redes sociales */}
